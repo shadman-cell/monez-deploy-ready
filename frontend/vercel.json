@@ -1,9 +1,10 @@
+
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://YOUR-BACKEND-DOMAIN/api/:path*"
+      "destination": "https://monez-deploy-ready.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
