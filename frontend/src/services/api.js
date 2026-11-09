@@ -1,4 +1,8 @@
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+
+const API_BASE = (
+  import.meta.env.VITE_API_BASE ??
+  (import.meta.env.DEV ? "http://localhost:5000" : "")
+).replace(/\/$/, "");
 
 async function jsonRequest(path, options = {}) {
   const response = await fetch(`${API_BASE}${path}`, {
@@ -37,7 +41,6 @@ export async function runAudit(url) {
     await new Promise((r) => setTimeout(r, 1200));
   }
 }
-
 
 function triggerBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
